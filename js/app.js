@@ -28,7 +28,7 @@ botonVaciar.addEventListener('click', () => {
 
 //METER EN EL HTML
 stockProductos.forEach((producto) => {
-    const div = document.createElement('div')
+const div = document.createElement('div')
     div.classList.add('producto')
     div.innerHTML = `
     <img src=${producto.img} alt= "">
@@ -135,3 +135,30 @@ for (boton of botones) {
         });
     }
 }
+
+
+
+//modo oscuro
+const bdark= document.querySelector('#bdark');
+const body = document.querySelector('body');
+
+load();
+
+bdark.addEventListener('click', e =>{
+    body.classList.toggle('darkmode');
+    store(body.classList.contains('darkmode'));
+});
+
+function load(){
+    const darkmode=localStorage.getItem('darkmode');
+    if(!darkmode){
+        store('false');
+    } else if(darkmode=='true'){
+
+    }
+}
+
+function store(value){
+    localStorage.setItem('darkmode',value);
+}
+
